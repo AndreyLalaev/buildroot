@@ -26,7 +26,7 @@
 			};
 			base_fdt {
 				description = "Flattened Device Tree blob";
-				data = /incbin/("./mpfs-icicle-kit.dtb");
+				data = /incbin/("./mpfs-beaglev-fire.dtb");
 				type = "flat_dt";
 				arch = "riscv";
 				compression = "none";
