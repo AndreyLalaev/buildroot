@@ -26,20 +26,17 @@
 #   infrastructure, and will be CC'ed on all patches that add or
 #   modify packages that use this infrastructure.
 
-N:	Adam Duskett <aduskett@gmail.com>
-F:	package/firewalld/
-F:	package/vulkan-loader/
-F:	package/vulkan-tools/
-
 N:	Adam Duskett <adam.duskett@amarulasolutions.com>
 F:	package/depot-tools/
+F:	package/dmenu-wayland/
+F:	package/fcft/
+F:	package/foot/
 F:	package/flutter-engine/
 F:	package/flutter-gallery/
 F:	package/flutter-pi/
 F:	package/flutter-sdk-bin/
-F:	package/python-kmod/
-F:	package/python-versioneer/
-F:	support/testing/tests/package/test_firewalld.py
+F:	package/libutempter/
+F:	package/tllist/
 F:	support/testing/tests/package/test_flutter.py
 
 N:	Adam Heinrich <adam@adamh.cz>
@@ -74,8 +71,8 @@ F:	package/libmbim/
 F:	package/libqmi/
 F:	package/modem-manager/
 
-N:      Alessandro Partesotti <a.partesotti@gmail.com>
-F:      package/oatpp/
+N:	Alessandro Partesotti <a.partesotti@gmail.com>
+F:	package/oatpp/
 
 N:	Alex Michel <alex.michel@wiedemann-group.com>
 F:	package/libzenoh-pico/
@@ -436,6 +433,7 @@ F:	package/libva/
 F:	package/libva-intel-driver/
 F:	package/libva-utils/
 F:	package/libvorbis/
+F:	package/libvpl/
 F:	package/libvpx/
 F:	package/libyuv/
 F:	package/linux-firmware/
@@ -446,7 +444,6 @@ F:	package/mjpg-streamer/
 F:	package/mpg123/
 F:	package/ntp/
 F:	package/nut/
-F:	package/onevpl/
 F:	package/onevpl-intel-gpu/
 F:	package/opus/
 F:	package/pciutils/
@@ -675,6 +672,8 @@ F:	configs/beelink_gs1_defconfig
 N:	Colin Foster <colin.foster@in-advantage.com>
 F:	package/python-tftpy/
 F:	package/rauc-hawkbit-updater/
+F:	support/testing/tests/package/sample_python_tftpy.py
+F:	support/testing/tests/package/test_python_tftpy.py
 
 N:	Corentin Guillevic <corentin.guillevic@smile.fr>
 F:	package/libloki/
@@ -1078,6 +1077,8 @@ F:	package/python-pymodbus/
 N:	Flávio Tapajós <flavio.tapajos@newtesc.com.br>
 F:	configs/asus_tinker-s_rk3288_defconfig
 F:	board/asus/tinker-s/
+F:	package/python-sqlalchemy/
+F:	package/rsyslog/
 
 N:	Florian Fainelli <f.fainelli@gmail.com>
 F:	package/cpulimit/
@@ -1707,14 +1708,14 @@ F:	configs/ts7680_defconfig
 F:	package/paho-mqtt-c
 
 N:	Julien Olivain <ju.o@free.fr>
-F:	board/qmtech/zynq/
+F:	board/qemu/riscv64-virt-efi/
 F:	board/spike/
 F:	board/technexion/imx8mmpico/
 F:	board/technexion/imx8mpico/
 F:	configs/imx8mmpico_defconfig
 F:	configs/imx8mpico_defconfig
+F:	configs/qemu_riscv64_virt_efi_defconfig
 F:	configs/spike_riscv64_defconfig
-F:	configs/zynq_qmtech_defconfig
 F:	package/fluid-soundfont/
 F:	package/fluidsynth/
 F:	package/glslsandbox-player/
@@ -1737,6 +1738,7 @@ F:	package/python-magic-wormhole/
 F:	package/python-magic-wormhole-mailbox-server/
 F:	package/python-magic-wormhole-transit-relay/
 F:	package/python-midiutil/
+F:	package/python-ml-dtypes/
 F:	package/python-pyalsa/
 F:	package/python-spake2/
 F:	package/rdma-core/
@@ -1748,6 +1750,7 @@ F:	support/testing/tests/package/sample_python_distro.py
 F:	support/testing/tests/package/sample_python_gnupg.py
 F:	support/testing/tests/package/sample_python_hwdata.py
 F:	support/testing/tests/package/sample_python_midiutil.py
+F:	support/testing/tests/package/sample_python_ml_dtypes.py
 F:	support/testing/tests/package/sample_python_pyalsa.py
 F:	support/testing/tests/package/sample_python_spake2.py
 F:	support/testing/tests/package/test_acpica.py
@@ -1798,6 +1801,7 @@ F:	support/testing/tests/package/test_python_hkdf.py
 F:	support/testing/tests/package/test_python_hwdata.py
 F:	support/testing/tests/package/test_python_magic_wormhole.py
 F:	support/testing/tests/package/test_python_midiutil.py
+F:	support/testing/tests/package/test_python_ml_dtypes.py
 F:	support/testing/tests/package/test_python_pyalsa.py
 F:	support/testing/tests/package/test_python_spake2.py
 F:	support/testing/tests/package/test_rdma_core.py
@@ -2211,8 +2215,11 @@ F:	board/zynqmp/
 F:	configs/versal_vck190_defconfig
 F:	configs/zynq_zc702_defconfig
 F:	configs/zynq_zc706_defconfig
+F:	configs/zynqmp_kria_kd240_defconfig
+F:	configs/zynqmp_kria_kr260_defconfig
 F:	configs/zynqmp_kria_kv260_defconfig
 F:	configs/zynqmp_zcu102_defconfig
+F:	configs/zynqmp_zcu104_defconfig
 F:	configs/zynqmp_zcu106_defconfig
 F:	package/bootgen/
 F:	package/versal-firmware/
@@ -2372,7 +2379,6 @@ F:	package/dfu-programmer/
 F:	package/docker-compose/
 F:	package/dump1090/
 F:	package/fatcat/
-F:	package/flickcurl/
 F:	package/fscryptctl/
 F:	package/ifmetric/
 F:	package/jo/
@@ -2712,10 +2718,6 @@ F:	package/hostapd/
 F:	package/rtl8189fs/
 F:	package/wpa_supplicant/
 F:	package/xr819-xradio/
-
-N:	Sergey Matyukevich <sergey.matyukevich@synopsys.com>
-F:	board/synopsys/nsim/
-F:	configs/snps_arc700_nsim_defconfig
 
 N:	Sergio Prado <sergio.prado@e-labworks.com>
 F:	board/toradex/apalis-imx6/
