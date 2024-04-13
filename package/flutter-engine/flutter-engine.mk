@@ -21,7 +21,7 @@
 #
 # There is no hash provided, as the gn binary (used for configuration) relies
 # on the .git directories. As such, a reproducible tarball is not possible.
-FLUTTER_ENGINE_VERSION = 3.13.9
+FLUTTER_ENGINE_VERSION = 3.19.5
 
 # There is nothing for Buildroot to download. This is handled by gclient.
 FLUTTER_ENGINE_SITE =
@@ -52,7 +52,9 @@ FLUTTER_ENGINE_TARGET_ARCH = x64
 FLUTTER_ENGINE_TARGET_TRIPPLE = x86_64-unknown-linux-gnu
 endif
 
-ifeq ($(BR2_ENABLE_RUNTIME_DEBUG),y)
+ifeq ($(FLUTTER_ENGINE_RUNTIME_MODE_PROFILE),y)
+FLUTTER_ENGINE_RUNTIME_MODE=profile
+else ifeq ($(BR2_ENABLE_RUNTIME_DEBUG),y)
 FLUTTER_ENGINE_RUNTIME_MODE=debug
 else
 FLUTTER_ENGINE_RUNTIME_MODE=release
@@ -152,6 +154,9 @@ else
 define FLUTTER_ENGINE_VULKAN_X11_SUPPORT_FIXUP
 	$(SED) "s%vulkan_use_x11.*%vulkan_use_x11 = false%g" -i \
 		$(@D)/build_overrides/vulkan_headers.gni
+
+	$(SED) "s%ozone_platform_x11.*%ozone_platform_x11 = false%g" \
+		$(@D)/build/config/BUILDCONFIG.gn
 endef
 FLUTTER_ENGINE_PRE_CONFIGURE_HOOKS += FLUTTER_ENGINE_VULKAN_X11_SUPPORT_FIXUP
 endif
@@ -162,6 +167,9 @@ else
 define FLUTTER_ENGINE_VULKAN_WAYLAND_SUPPORT_FIXUP
 	$(SED) "s%vulkan_use_wayland.*%vulkan_use_wayland = false%g" \
 		$(@D)/build_overrides/vulkan_headers.gni
+
+	$(SED) "s%ozone_platform_wayland.*%ozone_platform_wayland = false%g" \
+		$(@D)/build/config/BUILDCONFIG.gn
 endef
 FLUTTER_ENGINE_PRE_CONFIGURE_HOOKS += FLUTTER_ENGINE_VULKAN_WAYLAND_SUPPORT_FIXUP
 endif
