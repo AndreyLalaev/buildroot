@@ -1,32 +1,28 @@
 BR2_riscv=y
 BR2_RISCV_ISA_RVC=y
-BR2_PACKAGE_HOST_LINUX_HEADERS_CUSTOM_6_1=y
+BR2_WGET="wget -nd -t 3"
 BR2_TARGET_GENERIC_HOSTNAME="mpfs_icicle"
 BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_MDEV=y
 BR2_ROOTFS_POST_IMAGE_SCRIPT="board/microchip/mpfs_icicle/post-image.sh"
-
-# Kernel
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
 BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="$(call github,linux4microchip,linux,linux-6.1-mchp+fpga)/linux4microchip+fpga-2023.09.tar.gz"
-BR2_LINUX_KERNEL_DEFCONFIG="mpfs"
+BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/microchip/mpfs_icicle/mpfs_defconfig"
 BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="board/microchip/mpfs_icicle/linux.fragment"
 BR2_LINUX_KERNEL_DTS_SUPPORT=y
-BR2_LINUX_KERNEL_INTREE_DTS_NAME="mpfs-beaglev-fire"
-BR2_LINUX_KERNEL_CUSTOM_DTS_PATH="board/microchip/mpfs_icicle/linux-dts/*"
-
-# Packages
+BR2_LINUX_KERNEL_CUSTOM_DTS_PATH="board/microchip/mpfs_icicle/linux-dts/mpfs-beaglev-fire.dts board/microchip/mpfs_icicle/linux-dts/mpfs-beaglev-fire-fabric.dtsi"
 BR2_PACKAGE_BUSYBOX_CONFIG_FRAGMENT_FILES="board/microchip/mpfs_icicle/busybox/busybox.fragment"
+BR2_PACKAGE_STRESS_NG=y
 BR2_PACKAGE_MDEVD=y
 BR2_PACKAGE_LIBSSH=y
 BR2_PACKAGE_LIBSSH_SERVER=y
-
-# Rootfs
+BR2_PACKAGE_HTOP=y
+BR2_PACKAGE_UTIL_LINUX=y
+BR2_PACKAGE_UTIL_LINUX_BINARIES=y
 BR2_TARGET_ROOTFS_EXT2=y
 BR2_TARGET_ROOTFS_EXT2_4=y
 BR2_TARGET_ROOTFS_EXT2_SIZE="250M"
-
-# U-Boot
 BR2_TARGET_UBOOT=y
 BR2_TARGET_UBOOT_BUILD_SYSTEM_KCONFIG=y
 BR2_TARGET_UBOOT_CUSTOM_TARBALL=y
@@ -35,8 +31,6 @@ BR2_TARGET_UBOOT_BOARD_DEFCONFIG="microchip_mpfs_icicle"
 BR2_TARGET_UBOOT_CONFIG_FRAGMENT_FILES="board/microchip/mpfs_icicle/uboot-fragment-rootfs.config"
 BR2_TARGET_UBOOT_NEEDS_DTC=y
 BR2_TARGET_UBOOT_CUSTOM_DTS_PATH="board/microchip/mpfs_icicle/uboot-dts/*"
-
-# Host packages
 BR2_PACKAGE_HOST_DOSFSTOOLS=y
 BR2_PACKAGE_HOST_GENIMAGE=y
 BR2_PACKAGE_HOST_MICROCHIP_HSS_PAYLOAD_GENERATOR=y
